@@ -13,6 +13,9 @@ html {
 /*
  * Global layout stuff
  */
+* {
+  font-family: Roboto !important 
+}
 
 body {
   margin: 0;
