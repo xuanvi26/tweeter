@@ -13,8 +13,8 @@ html {
 /*
  * Global layout stuff
  */
- * {
-  font-family: Roboto !important 
+* {
+  font-family: Roboto, sans-serif;
 }
 
 body {
@@ -26,3 +26,10 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+ .container {
+  width: 450px;
+  background-color: white;
+  margin-top: 140px;
+  margin-right: auto;
+  margin-left: auto;
+ }
