@@ -1,3 +1,3 @@
 $(document).ready(function() {
-    console.log("Running char counter!");
-})
+    $('.new-tweet textarea').on()
+});
