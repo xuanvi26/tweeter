@@ -8,6 +8,6 @@
     margin-right: auto;
 }
 
-.container .new-tweet.counter {
-
+.container .new-tweet .counter {
+    color: #333;
 }
