@@ -20,16 +20,13 @@ html {
 body {
   margin-top: 80px;
   color: #244751;
-  background-color: #eee;
+  background-color: white;
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 .container {
-  width: 500px;
-  background-color: white;
-  margin-top: 80px;
-  margin-right: auto;
-  margin-left: auto;
+  position: relative;
+  top: 30px;
 }

@@ -7,6 +7,8 @@
     height: 175px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 30px;
+    opacity: 0.6;
 }
 
 article.tweet header {
@@ -16,10 +18,10 @@ article.tweet header {
     justify-content: space-between;
     margin-left: 1px;
     margin-right: 1px;
+    margin-top: 1px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     height: 36%;
-
 }
 
 article.tweet .user-profile {
@@ -51,6 +53,7 @@ article.tweet .tweet-body {
     flex-direction: column;
     justify-content: space-evenly;
     margin-left: 13px;
+    text-align: left;
 }
 
 article.tweet footer {
