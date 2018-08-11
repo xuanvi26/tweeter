@@ -3,7 +3,7 @@ $(document).ready(function() {
         let counter = 140 - $(this).val().length;
         let htmlCounter = $(this).parent().find(".counter")
         htmlCounter.text(counter);
-        if(counter > 0) htmlCounter.css({"color": "#333"});
+        if(counter > 0) htmlCounter.css({"color": "rgb(165, 165, 165)"});
         else htmlCounter.css({"color": "red"});
     })  
 });
