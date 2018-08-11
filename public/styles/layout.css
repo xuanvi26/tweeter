@@ -26,10 +26,10 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
- .container {
+.container {
   width: 500px;
   background-color: white;
   margin-top: 80px;
   margin-right: auto;
   margin-left: auto;
- }
+}
