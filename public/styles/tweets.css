@@ -1,22 +1,64 @@
+#tweet-container .tweet {
+    background-color: whitesmoke;
+    opacity: 0.8;
+    border-radius: 5px;
+    border: 1px solid rgb(179, 179, 179);
+    width: 400px;
+    height: 175px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 article.tweet header {
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(228, 228, 228);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-}
+    margin-left: 1px;
+    margin-right: 1px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    height: 36%;
 
-.tweet-container .tweet {
-    background-color: rgb(228, 228, 228);
-    opacity: 0.8;
-    border-radius: 15px;
-    border: 1px solid rgb(179, 179, 179);
-    width: 400px;
-    height: 150px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 article.tweet .user-profile {
     flex-direction: row;
     display: flex;
+    margin: 10px;
+}
+
+article.tweet .user-profile img {
+    border-radius: 5px;
+}
+
+article.tweet .user-profile .username {
+    font-weight: 700;
+    font-size: 1.3em;
+    margin-left: 6px;
+}
+
+article.tweet .handle {
+    margin: 10px;
+    font-size: 0.9em;
+    color: grey;
+}
+
+article.tweet .tweet-body {
+    height: 49%;
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: 13px;
+}
+
+article.tweet footer {
+    border-top: 1px solid rgb(179, 179, 179);
+}
+
+article.tweet .footer-text {
+    margin-left: 13px;
+    font-size: 0.8em;
+    margin-top: 6px;
 }
