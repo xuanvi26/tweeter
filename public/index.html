@@ -1,82 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Meta Information -->
-    <title>Tweeter - Home Page</title>
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,700,700i" rel="stylesheet">
+<head>
+  <!-- Meta Information -->
+  <title>Tweeter - Home Page</title>
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+  <!-- External CSS -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,700,700i" rel="stylesheet">
 
-    <!-- External JS -->
-    <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
 
-    <!-- App JS -->
-    <script type="text/javascript" src="/scripts/app.js"></script>
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-    <script type="text/javascript" src="/scripts/hover-state.js"></script>
-  </head>
+  <!-- External JS -->
+  <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
-  <body>
+  <!-- App JS -->
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+  <script type="text/javascript" src="/scripts/hover-state.js"></script>
+</head>
 
-    <!-- Top nav bar (fixed) -->
-    <nav id="nav-bar">
-      <img class="logo" src="/images/bird.png">
-      <span class="header">Tweeter</span>
-    </nav>
+<body>
 
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <hr />
-        <form method="POST" action="/tweets">
-          <textarea name="text" placeholder="What are you humming about?"></textarea>
-          <div>
-            <input type="submit" value="Tweet">
-            <span class="counter">140</span>
-          </div>
-        </form>
-      </section>
-      <section id="tweet-container">
-        <article class="tweet">
-          <header>
-            <div class='user-profile'>
-              <img src="https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png"/>
-              <div class='username'>Bill Fields</div>
-            </div>
-            <div class='handle'>@MrFields</div>
-          </header>
-          <div class='tweet-body'>
-            <div>Little tweet here</div>
-          </div>
-          <footer>
-            <div class='footer-text'>10 days ago</div>
-          </footer>
-        </article>
-        <article class="tweet">
-            <header>
-              <div class='user-profile'>
-                <img src="https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png"/>
-                <div class='username'>Bill Fields</div>
-              </div>
-              <div class='handle'>@MrFields</div>
-            </header>
-            <div class='tweet-body'>
-              <div>Little tweet here</div>
-            </div>
-            <footer>
-              <div class='footer-text'>10 days ago</div>
-            </footer>
-          </article>
-      </section>
-    </main>
+  <!-- Top nav bar (fixed) -->
+  <nav id="nav-bar">
+    <img class="logo" src="/images/bird.png">
+    <span class="header">Tweeter</span>
+  </nav>
 
-  </body>
+  <!-- Page-specific (main) content here -->
+  <main class="container">
+    <section class="new-tweet">
+      <h2>Compose Tweet</h2>
+      <hr />
+      <form method="POST" action="/tweets">
+        <textarea name="text" placeholder="What are you humming about?"></textarea>
+        <div>
+          <input type="submit" value="Tweet">
+          <span class="counter">140</span>
+        </div>
+      </form>
+    </section>
+    <section id="tweet-container">
+    </section>
+  </main>
+
+</body>
+
 </html>
