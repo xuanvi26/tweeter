@@ -5,7 +5,6 @@
  */
 
 // Test / driver code (temporary). Eventually will get this from the server.
-const ajax = require('ajax');
 
 $(document).ready(function() {
   const data = [
@@ -110,6 +109,9 @@ $(document).ready(function() {
 
   $('.new-tweet form').submit(function (event) {
     event.preventDefault();
+    const tweetBody = $('.new-tweet form textarea[name="text"]').val();
+    $.post('/tweets', {text: tweetBody});
+    
   })
   
 });
