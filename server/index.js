@@ -31,7 +31,7 @@ app.use("/tweets", tweetsRoutes);
 
 app.post("/tweets", (req, res) => {
   console.log("hello");
-  res.send(200);
+  res.send(403);
 });
 
 app.listen(PORT, () => {

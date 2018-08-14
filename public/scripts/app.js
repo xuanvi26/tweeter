@@ -5,6 +5,8 @@
  */
 
 // Test / driver code (temporary). Eventually will get this from the server.
+const ajax = require('ajax');
+
 $(document).ready(function() {
   const data = [
     {
@@ -65,7 +67,6 @@ $(document).ready(function() {
   ];
 
   const createHeader = tweetData => {
-    console.log("the username =", tweetData.user.name);
     let header = $("<header>");
     let userProfile = $("<div>").addClass("user-profile");
     userProfile.append($(`<img src=${tweetData.user.avatars.small}>`));
@@ -104,5 +105,11 @@ $(document).ready(function() {
       $("#tweet-container").append(articleTweet);
     });
   };
+
   renderTweets(data);
+
+  $('.new-tweet form').submit(function (event) {
+    event.preventDefault();
+  })
+  
 });
