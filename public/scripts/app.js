@@ -53,8 +53,10 @@ $(document).ready(function() {
     const tweetBody = $('.new-tweet form textarea[name="text"]').val();
     if (!tweetBody) alert("Please enter a tweet");
     else if (tweetBody.length > 140) alert("Maximum number of characters exceeded");
-    else $.post('/tweets', {text: tweetBody});
-  })
+    else $.post('/tweets', {text: tweetBody}, function(data) {
+      loadTweets();
+    });
+  });
 
   const loadTweets = () => {
     $.get('/tweets', function(data) {
@@ -67,8 +69,8 @@ $(document).ready(function() {
           $(this).css({ opacity: "0.6" });
         }
       );
-    })
-  }
+    });
+  };
 
   loadTweets();
 
