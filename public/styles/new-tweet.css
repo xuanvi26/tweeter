@@ -38,3 +38,7 @@
 .new-tweet .counter {
   color: rgb(165, 165, 165);
 }
+
+textarea:invalid {
+  border: 2px solid red;
+}

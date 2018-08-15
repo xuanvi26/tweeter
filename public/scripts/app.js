@@ -69,9 +69,7 @@ $(document).ready(function() {
   $('.new-tweet form').submit(function (event) {
     event.preventDefault();
     const tweetBody = $('.new-tweet form textarea[name="text"]').val();
-    if (!tweetBody) alert("Please enter a tweet");
-    else if (tweetBody.length > 140) alert("Maximum number of characters exceeded");
-    else $.post('/tweets', {text: tweetBody}, function(data) {
+    $.post('/tweets', {text: tweetBody}, function(data) {
       appendTweet();
     });
   });

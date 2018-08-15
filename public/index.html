@@ -39,9 +39,9 @@
       <h2>Compose Tweet</h2>
       <hr />
       <form method="POST" action="/tweets">
-        <textarea name="text" placeholder="What are you humming about?"></textarea>
+        <textarea name="text" placeholder="What are you humming about?" required maxlength="140"></textarea>
         <div>
-          <input type="submit" value="Tweet">
+          <button>Tweet</button>
           <span class="counter">140</span>
         </div>
       </form>
