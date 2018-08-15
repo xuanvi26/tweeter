@@ -41,12 +41,30 @@ $(document).ready(function() {
     return articleTweet;
   };
 
-  const renderTweets = tweets => {
+  const renderTweets = (tweets) => {
     tweets.map(tweet => {
       let articleTweet = createTweetElement(tweet);
       $("#tweet-container").append(articleTweet);
     });
   };
+
+  const appendTweet = () => {
+    $.get('/tweets', function(data) {
+      renderTweets([data[data.length - 1]]);
+      addHover();
+    });
+  }
+
+  const addHover = () => {
+    $("#tweet-container .tweet").hover(
+      function() {
+        $(this).css({ opacity: "1" });
+      },
+      function() {
+        $(this).css({ opacity: "0.6" });
+      }
+    );
+  }
 
   $('.new-tweet form').submit(function (event) {
     event.preventDefault();
@@ -54,21 +72,14 @@ $(document).ready(function() {
     if (!tweetBody) alert("Please enter a tweet");
     else if (tweetBody.length > 140) alert("Maximum number of characters exceeded");
     else $.post('/tweets', {text: tweetBody}, function(data) {
-      loadTweets();
+      appendTweet();
     });
   });
 
   const loadTweets = () => {
     $.get('/tweets', function(data) {
       renderTweets(data);
-      $("#tweet-container .tweet").hover(
-        function() {
-          $(this).css({ opacity: "1" });
-        },
-        function() {
-          $(this).css({ opacity: "0.6" });
-        }
-      );
+      addHover();
     });
   };
 
