@@ -24,23 +24,14 @@
   float: left;
 }
 
-#nav-bar .compose-container {
+#nav-bar .compose {
   float: right;
   line-height: 55px;
   margin-top: 10px;
   border-radius: 5px;
   opacity: 0.6;
   background-color: rgb(228, 228, 228);  
-}
-
-#nav-bar .compose-container .compose-icon {
-  width: 30px;
-  height: 30px;
-}
-
-#nav-bar .compose-container .compose-body {
   font-size: 1.1em;
   color: rgb(128, 127, 127);
-  border-radius: 5px;
   border: 1px solid rgb(179, 179, 179);
 }
