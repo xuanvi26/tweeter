@@ -71,6 +71,7 @@ $(document).ready(function() {
     const tweetBody = $('.new-tweet form textarea[name="text"]').val();
     $.post('/tweets', {text: tweetBody}, function(data) {
       appendTweet();
+      $(".new-tweet textarea").val('');
     });
   });
 
