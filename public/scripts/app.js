@@ -20,7 +20,7 @@ $(document).ready(function() {
 
   const createBody = tweetData => {
     let body = $("<div>").addClass("tweet-body");
-    body.append(`<div>${tweetData.content.text}`);
+    body.append($("<div>").text(tweetData.content.text));
     return body;
   };
 
