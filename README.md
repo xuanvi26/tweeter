@@ -2,6 +2,12 @@
 
 A simple single-page Twitter clone that uses jQuery, HTML5, CSS3, Express and MongoDB.
 
+## Screenshots
+### Default page
+!["Default page"](https://i.imgur.com/9aNAkW7.png)
+### Composing tweet
+!["Composing tweet"](https://imgur.com/F5DV2Zu.png)
+
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
