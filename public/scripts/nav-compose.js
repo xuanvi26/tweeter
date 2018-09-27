@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#nav-bar .compose").hover(
+    $("#nav-bar .compose, .tweet-button").hover(
       function() {
         $(this).css({ opacity: "1" });
       },
