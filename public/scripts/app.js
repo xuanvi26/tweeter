@@ -18,7 +18,7 @@ $(document).ready(function() {
 
   const createFooter = tweetData => {
     let footer = $("<footer>");
-    footer.append(`<div class='footer-text'>${tweetData.created_at}`);
+    footer.append(`<div class='footer-text'>${new Date(tweetData.created_at).toLocaleDateString("en-US", { hour: 'numeric', minute: 'numeric' })}`);
     return footer;
   };
 
@@ -36,7 +36,7 @@ $(document).ready(function() {
   const renderTweets = (tweets) => {
     tweets.map(tweet => {
       let articleTweet = createTweetElement(tweet);
-      $("#tweet-container").append(articleTweet);
+      $("#tweet-container").prepend(articleTweet);
     });
   };
 
