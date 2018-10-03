@@ -35,7 +35,7 @@ article.tweet .user-profile img {
 
 article.tweet .user-profile .username {
   font-weight: 700;
-  font-size: 1.3em;
+  font-size: 1.1em;
   margin-left: 6px;
 }
 
@@ -52,6 +52,7 @@ article.tweet .tweet-body {
   flex-direction: column;
   justify-content: space-evenly;
   margin-left: 13px;
+  margin-right: 13px;
   text-align: left;
 }
 
