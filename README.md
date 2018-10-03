@@ -3,10 +3,11 @@
 A simple single-page Twitter clone that uses jQuery, HTML5, CSS3, Express and MongoDB.
 
 ## Screenshots
-### Default page
-!["Default page"](https://i.imgur.com/9aNAkW7.png)
+### Home page
+!["Default page"](https://imgur.com/a/LbY8wtJ)
 ### Composing tweet
 !["Composing tweet"](https://imgur.com/F5DV2Zu.png)
+The new tweet is appended to the top of the page with the date, the time and a random username fetched from the database.
 
 ## Getting Started
 
