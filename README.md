@@ -1,6 +1,6 @@
 # Tweeter Project
 
-A simple single-page Twitter clone built with jQuery, HTML5, CSS3, Express and MongoDB.
+A single-page Twitter clone built with jQuery, HTML5, CSS3, Express and MongoDB.
 
 ## Screenshots
 ### Home page
