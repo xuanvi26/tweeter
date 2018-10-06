@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    $("#nav-bar .compose, .tweet-button").hover(
+    $("#nav-bar .compose, .new-tweet .tweet-button").hover(
       function() {
         $(this).css({ opacity: "1" });
       },
@@ -7,9 +7,7 @@ $(document).ready(function() {
         $(this).css({ opacity: "0.6" });
       }
     );
-    $("#nav-bar .compose").click(function() {
-      $(".new-tweet").toggle("slow", function() {
-        $(".new-tweet textarea").focus();
-      });
+    $("#nav-bar .compose, .new-tweet .tweet-button").click(function() {
+      $(".new-tweet").toggle("slow");
     })
 })

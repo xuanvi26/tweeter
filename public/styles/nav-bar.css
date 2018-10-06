@@ -1,0 +1,33 @@
+#nav-bar {
+  height: 80px;
+  width: 100%;
+  background-color:  rgba(76, 211, 235, 0.877);
+  color: whitesmoke;
+  position: fixed;
+  top: 0;
+  padding: 15px 20px;
+  z-index: 1000;
+}
+
+#nav-bar .logo {
+  width: 60px;
+  height: 50px;
+  float: left;
+}
+
+#nav-bar .header {
+  font-size: 2em;
+  float: left;
+}
+
+#nav-bar .compose {
+  opacity: 0.6;
+  float: right;
+  height: 50px;
+  width: 120px;
+  display: flex;
+  flex-direction: row;
+  color: grey;
+  border-radius: 5px;
+  background: white;
+}

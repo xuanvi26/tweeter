@@ -18,7 +18,7 @@ $(document).ready(function() {
 
   const createFooter = tweetData => {
     let footer = $("<footer>");
-    footer.append(`<div class='footer-text'>${new Date(tweetData.created_at).toLocaleDateString("en-US", { hour: 'numeric', minute: 'numeric' })}`);
+    footer.append(`<div>${new Date(tweetData.created_at).toLocaleDateString("en-US", { hour: 'numeric', minute: 'numeric' })}`);
     return footer;
   };
 

@@ -1,15 +1,11 @@
 .new-tweet {
-  background-image: linear-gradient(rgba(36, 211, 235, 0.60), rgba(36, 233, 160, 0.60)); 
+  background-image: linear-gradient(rgba(36, 211, 235, 0.60), rgba(36, 233, 160, 0.50)); 
   border-radius: 5px;
-  border: 1px solid rgb(179, 179, 179);
-  width: 400px;
-  height: 175px;
-  margin-left: auto;
-  margin-right: auto;
+  border: 1px solid rgb(165, 165, 165);
 }
 
 .new-tweet h2 {
-  color: #fff;
+  color: whitesmoke;
   margin-bottom: 0;
   text-align: center;
 }
@@ -17,41 +13,36 @@
 .new-tweet form {
   display: flex;
   flex-direction: column;
-  margin-right: 13px;
-  margin-left: 13px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  padding: 13px;
 }
 
 .new-tweet textarea {
-  margin-top: 0;
-  height: 56px;
-  border-color: rgb(158, 158, 158);
+  border-color: rgb(165, 165, 165);
   margin-bottom: 10px;
   border-radius: 5px;
+  height: 60px;
+  color: grey;
 }
 
-.new-tweet form div {
+.new-tweet .display-in-line {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.new-tweet textarea:invalid {
+  border: 1px solid red;
 }
 
 .new-tweet .counter {
   color: rgb(165, 165, 165);
 }
 
-textarea:invalid {
-  border: 2px solid red;
-}
-
-.tweet-button {
-  background-color: white;
+.new-tweet .tweet-button {
   opacity: 0.6;
-  color: rgb(128, 127, 127);
+  color: grey;
   padding: 3px;
   font-size: 0.7em;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 10px;
   border-radius: 4px;
 }
