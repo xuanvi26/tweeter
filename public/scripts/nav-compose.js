@@ -8,6 +8,10 @@ $(document).ready(function() {
       }
     );
     $("#nav-bar .compose").click(function() {
-      $(".new-tweet").toggle("slow");
-    })
-})
+      $(".new-tweet").toggle("slow", function() {
+        if($(".new-tweet").is(":visible")) {
+          $('.new-tweet form textarea[name="text"]').focus();
+        }
+      });
+    });
+});
