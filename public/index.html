@@ -43,7 +43,7 @@
       <h2>Compose Tweet</h2>
       <hr />
       <form method="POST" action="/tweets">
-        <textarea name="text" placeholder="What are you humming about?" required maxlength="140"></textarea>
+        <textarea name="text" placeholder="What are you humming about?" required oninvalid="this.setCustomValidity('Please enter a tweet.')" maxlength="140"></textarea>
         <div class='display-in-line'>
           <button class='tweet-button compose'>Go</button>
           <span class="counter">140</span>
