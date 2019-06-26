@@ -58,11 +58,13 @@ $(document).ready(function() {
     );
   }
 
-  $('.new-tweet form').submit(function (event) {
+  $('.new-tweet form').submit(function(event) {
     event.preventDefault();
     const tweetBody = $('.new-tweet form textarea[name="text"]').val();
     $.post('/tweets', {text: tweetBody}, function(data) {
       appendTweet();
+      let counter = $(".new-tweet form .display-in-line .counter");
+      counter.text(140);
       $(".new-tweet textarea").val('');
     });
   });
