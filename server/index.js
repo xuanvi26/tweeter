@@ -10,7 +10,7 @@ const app           = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-const MongoClient = require("mongodb").MongoClient;
+const { MongoClient } = require("mongodb");
 const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 
 MongoClient.connect(MONGODB_URI, (err, db) => {
