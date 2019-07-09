@@ -1,0 +1,54 @@
+Arguments: 
+  /usr/local/Cellar/node/10.11.0/bin/node /usr/local/Cellar/yarn/1.10.1/libexec/bin/yarn.js
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.10.1
+
+Node version: 
+  10.11.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/Xuan-Vi.Trinh-Nguyen/Documents/Coding/Projects/tweeter/package.json: Unexpected token } in JSON at position 602
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.10.1/libexec/lib/cli.js:1136:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.10.1/libexec/lib/cli.js:98:30)
+      at /usr/local/Cellar/yarn/1.10.1/libexec/lib/cli.js:109:13
+
+npm manifest: 
+  {
+    "name": "tweeter",
+    "version": "1.0.0",
+    "description": "A twitter clone by Lighthouse Labs for web bootcamp students to learn front-end dev skillz",
+    "main": "server/index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node server/index.js",
+      "local": "./node_modules/.bin/nodemon --watch server -e js server/index.js"
+    },
+    "author": "Lighthouse Labs",
+    "license": "ISC",
+    "dependencies": {
+      "ajax": "0.0.4",
+      "body-parser": "^1.15.2",
+      "chance": "^1.0.2",
+      "express": "^4.13.4",
+      "md5": "^2.1.0",
+      "mongodb": "^2.2.36",
+    },
+    "devDependencies": {
+      "nodemon": "^1.9.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

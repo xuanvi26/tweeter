@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+  
   const createHeader = tweetData => {
     let header = $("<header>");
     let userProfile = $("<div>").addClass("user-profile");
@@ -77,5 +77,13 @@ $(document).ready(function() {
   };
 
   loadTweets();
+
+  const createModal = () => {
+
+  };
+
+  $('#nav-bar .login').on('click', function() {
+    //append a popup
+  });
 
 });

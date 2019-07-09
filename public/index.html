@@ -15,11 +15,14 @@
   <link rel="stylesheet" href="/styles/nav-bar.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
   <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/modal.css" type="text/css" />
 
   <!-- External JS -->
   <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
 
   <!-- App JS -->
+
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/character-counter.js"></script>
   <script type="text/javascript" src="/scripts/nav-compose.js"></script>
@@ -35,10 +38,24 @@
         <i class="material-icons">create</i>
         <div>Compose</div>
     </button>
+    <button class='login-toggle'>
+        <div>Login</div>
+    </button>
   </nav>
 
   <!-- Page-specific (main) content here -->
   <main class="container">
+    <section class="login-form">
+      <h2>Login</h2>
+      <hr />
+      <form method="POST" action="/tweets">
+        <input type="email" placeholder="Email" required ></input>
+        <input type="password" pdb.laceholder="Password" required></input>
+        <div class='display-in-line'>
+          <button class='login-submit'>Go</button>
+        </div>
+      </form>
+    </section>
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
       <hr />
