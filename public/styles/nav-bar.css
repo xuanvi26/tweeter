@@ -25,8 +25,8 @@
   margin-right: 5px;
 }
 
-.login-toggle, .compose {
-  opacity: 0.6;
+.login-register-toggle, .compose {
+  opacity: 0.9;
   float: right;
   height: 50px;
   display: flex;
@@ -36,6 +36,6 @@
   background: white;
 }
 
-.login-toggle {
+.login-register-toggle {
   width: 125px;
 }

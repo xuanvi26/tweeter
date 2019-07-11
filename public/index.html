@@ -21,10 +21,10 @@
   <script type="text/javascript" src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
 
   <!-- App JS -->
-
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/character-counter.js"></script>
-  <script type="text/javascript" src="/scripts/nav-compose.js"></script>
+  <script type="text/javascript" src="/scripts/nav-toggle.js"></script>
+  <script type="text/javascript" src="/scripts/change-login-register.js"></script>
 </head>
 
 <body>
@@ -34,7 +34,7 @@
     <img class="logo" src="http://www.eatlogos.com/all_free_logos/png/vector_blue_birds_logo.png">
     <span class="header">Tweeter</span>
     <span class="handler">@jervi</span>
-    <button class='login-toggle'>
+    <button class='login-register-toggle'>
       <div>Login/Register</div>
     </button>
     <button class='compose'>
@@ -50,7 +50,7 @@
       <form method="POST" action="/login">
         <input type="email" placeholder="Email" required ></input>
         <input type="password" placeholder="Password" required></input>
-        <span class="message">Don't have an account? <a href="/">Register here.</a></span>
+        <span class="message">Don't have an account? <button type="button">Register here.</button></span>
         <div class='display-in-line'>
           <button class='submit-button'>Go</button>
         </div>
@@ -65,7 +65,7 @@
         <input name="username" placeholder="Username" required ></input>
         <input type="email" placeholder="Email" required ></input>
         <input type="password" placeholder="Password" required></input>
-        <span class="message">Already have an account? <a href="/">Login here.</a></span>
+        <span class="message">Already have an account? <button type="button">Login here.</button></span>
         <div class='display-in-line'>
           <button class='submit-button'>Go</button>
         </div>
