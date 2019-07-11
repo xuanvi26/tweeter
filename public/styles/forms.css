@@ -1,0 +1,57 @@
+.new-tweet, .login-form, .register-form {
+  background-image: linear-gradient(rgba(36, 211, 235, 0.60), rgba(36, 233, 160, 0.50)); 
+  border-radius: 5px;
+  border: 1px solid rgb(165, 165, 165);
+}
+
+input {
+  border-width: 1px;
+  height: 30px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  color: grey;
+  padding: 5px;
+}
+
+.login-form, .register-form {
+  margin-bottom: 30px;
+}
+
+.submit-button {
+  color: grey;
+  padding: 3px;
+  font-size: 0.7em;
+  padding: 0 10px;
+  border-radius: 4px;
+}
+
+h2 {
+  color: whitesmoke;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 13px;
+}
+
+.display-in-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.new-tweet textarea {
+  border-color: rgb(165, 165, 165);
+  padding: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  height: 60px;
+  color: grey;
+}
+
+.new-tweet .counter {
+  color: rgb(165, 165, 165);
+}

@@ -37,19 +37,18 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     db.collection('users').findOne({email: req.body.email}, (err, result) => {
       let resStatus = 403;
       if (err) throw err;
-      //if (bcryot.compareSync (req.body.password, result.password))
-      if (req.body.password === result.password) {
+      if (bcrypt.compareSync (req.body.password, result.password)) {
         resStatus = 200;
+        req.session.user = result._id;
       }
-      req.session.user = result._id;
+      console.log('session id', req.session.user);
       res.status(resStatus).redirect('/');
     })
   });
     
   app.post("/register", (req, res) => {
-    let resStatus = 403;
     if(db.collection('users').findOne({email:req.body.email})) {
-      res.status(resStatus).redirect('/');
+      res.status(403).redirect('/');
     }
     let user = {
       username: req.body.username,
@@ -58,8 +57,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
       password: bcrypt.hashSync(req.body.password, 10)
     };
     db.collection('users').insertOne(user);
-    console.log('inserted', db.collections('users').find({email: req.body.email}));
-    req.session.user = db.collections('users').find({email: req.body.email})._id;
+    req.session.user = db.collections('users').findOne({email: req.body.email})._id;
   });
 
 //hashedPassword: bcrypt.hashSync(req.body.password, 10)

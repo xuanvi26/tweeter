@@ -15,6 +15,7 @@ $(document).ready(function() {
       });
     });
     $("#nav-bar .login-toggle").click(function() {
+      //if the login-form is there if not do the same thing with the register form
       $(".login-form").toggle("slow", function() {
         if($(".login-form").is(":visible")) {
           $('.login-form input[type="email"]').focus();

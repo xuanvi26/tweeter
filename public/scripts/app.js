@@ -91,11 +91,12 @@ $(document).ready(function() {
 
   $('.register-form form').submit(function() {
     event.preventDefault();
-    const email = $('.login-form form input[type="email"').val();
-    const password = $('.login-form form input[type="password"').val();
-    $.post('/login', {email, password}, function(data) {
-      $(".login-form").toggle("slow");
-      $("#nav-bar login-toggle").replacewith('<span>HELLO</span>');
+    const fullName = $('.register-form form input[name="fullName"').val();
+    const username = $('.register-form form input[name="username"').val();
+    const email = $('.register-form form input[type="email"').val();
+    const password = $('.register-form form input[type="password"').val();
+    $.post('/register', {fullName, username, email, password}, function(data) {
+      $(".register-form").toggle("slow");
       //replace the login with the person's full name instead and add the compose button
     });
   });

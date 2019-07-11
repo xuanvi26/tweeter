@@ -13,7 +13,7 @@
   <!-- App CSS -->
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
   <link rel="stylesheet" href="/styles/nav-bar.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/forms.css" type="text/css" />
   <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
 
   <!-- External JS -->
@@ -33,12 +33,13 @@
   <nav id="nav-bar">
     <img class="logo" src="http://www.eatlogos.com/all_free_logos/png/vector_blue_birds_logo.png">
     <span class="header">Tweeter</span>
+    <span class="handler">@jervi</span>
+    <button class='login-toggle'>
+      <div>Login/Register</div>
+    </button>
     <button class='compose'>
         <i class="material-icons">create</i>
         <div>Compose</div>
-    </button>
-    <button class='login-toggle'>
-        <div>Login</div>
     </button>
   </nav>
 
@@ -52,7 +53,7 @@
         <input type="password" placeholder="Password" required></input>
         <span>Don't have an account? <a href="/">Register here.</a></span>
         <div class='display-in-line'>
-          <button class='login-submit'>Go</button>
+          <button class='submit-button'>Go</button>
         </div>
       </form>
     </section>
@@ -67,7 +68,7 @@
         <input type="password" placeholder="Password" required></input>
         <span>Already have an account? <a href="/">Login here.</a></span>
         <div class='display-in-line'>
-          <button class='register-submit'>Go</button>
+          <button class='submit-button'>Go</button>
         </div>
       </form>
     </section>
@@ -78,7 +79,7 @@
       <form method="POST" action="/tweets">
         <textarea name="text" placeholder="What are you humming about?" required oninvalid="this.setCustomValidity('Please enter a tweet.')" maxlength="140"></textarea>
         <div class='display-in-line'>
-          <button class='tweet-button compose'>Go</button>
+          <button class='submit-button'>Go</button>
           <span class="counter">140</span>
         </div>
       </form>

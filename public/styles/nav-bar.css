@@ -1,7 +1,7 @@
 #nav-bar {
   height: 80px;
   width: 100%;
-  background-color:  rgba(76, 211, 235, 0.877);
+  background-color:  rgba(76, 211, 235);
   color: whitesmoke;
   position: fixed;
   top: 0;
@@ -21,6 +21,7 @@
 }
 
 #nav-bar .compose {
+  visibility: hidden;
   opacity: 0.6;
   float: right;
   height: 50px;
