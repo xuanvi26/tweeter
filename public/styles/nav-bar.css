@@ -9,23 +9,26 @@
   z-index: 1000;
 }
 
-#nav-bar .logo {
+.logo {
   width: 60px;
   height: 50px;
   float: left;
 }
 
-#nav-bar .header {
+.header {
   font-size: 2em;
   float: left;
 }
 
-#nav-bar .compose {
+.compose {
   visibility: hidden;
+  margin-right: 5px;
+}
+
+.login-toggle, .compose {
   opacity: 0.6;
   float: right;
   height: 50px;
-  width: 120px;
   display: flex;
   flex-direction: row;
   color: grey;
@@ -33,14 +36,6 @@
   background: white;
 }
 
-#nav-bar .login-toggle {
-  opacity: 0.6;
-  float: right;
-  height: 50px;
-  width: 120px;
-  display: flex;
-  flex-direction: row;
-  color: grey;
-  border-radius: 5px;
-  background: white;
+.login-toggle {
+  width: 125px;
 }

@@ -2,6 +2,7 @@
   background-image: linear-gradient(rgba(36, 211, 235, 0.60), rgba(36, 233, 160, 0.50)); 
   border-radius: 5px;
   border: 1px solid rgb(165, 165, 165);
+  /* display: none; */
 }
 
 input {
@@ -11,6 +12,12 @@ input {
   border-radius: 4px;
   color: grey;
   padding: 5px;
+}
+
+.message {
+  font-size: 0.9em;
+  margin-bottom: 5px;
+  color:rgb(105, 105, 105)
 }
 
 .login-form, .register-form {
