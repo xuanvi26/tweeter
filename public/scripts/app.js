@@ -78,12 +78,26 @@ $(document).ready(function() {
 
   loadTweets();
 
-  const createModal = () => {
+  $('.login-form form').submit(function() {
+    event.preventDefault();
+    const email = $('.login-form form input[type="email"').val();
+    const password = $('.login-form form input[type="password"').val();
+    $.post('/login', {email, password}, function(data) {
+      $(".login-form").toggle("slow");
+      $("#nav-bar login-toggle").replacewith('<span>HELLO</span>');
+      //replace the login with the person's full name instead and add the compose button
+    });
+  });
 
-  };
-
-  $('#nav-bar .login').on('click', function() {
-    //append a popup
+  $('.register-form form').submit(function() {
+    event.preventDefault();
+    const email = $('.login-form form input[type="email"').val();
+    const password = $('.login-form form input[type="password"').val();
+    $.post('/login', {email, password}, function(data) {
+      $(".login-form").toggle("slow");
+      $("#nav-bar login-toggle").replacewith('<span>HELLO</span>');
+      //replace the login with the person's full name instead and add the compose button
+    });
   });
 
 });

@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="/styles/nav-bar.css" type="text/css" />
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
   <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
-  <link rel="stylesheet" href="/styles/modal.css" type="text/css" />
 
   <!-- External JS -->
   <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
@@ -48,14 +47,31 @@
     <section class="login-form">
       <h2>Login</h2>
       <hr />
-      <form method="POST" action="/tweets">
+      <form method="POST" action="/login">
         <input type="email" placeholder="Email" required ></input>
-        <input type="password" pdb.laceholder="Password" required></input>
+        <input type="password" placeholder="Password" required></input>
+        <span>Don't have an account? <a href="/">Register here.</a></span>
         <div class='display-in-line'>
           <button class='login-submit'>Go</button>
         </div>
       </form>
     </section>
+
+    <section class="register-form">
+      <h2>Register</h2>
+      <hr />
+      <form method="POST" action="/register">
+        <input name="fullName" placeholder="Full Name" required ></input>
+        <input name="username" placeholder="Username" required ></input>
+        <input type="email" placeholder="Email" required ></input>
+        <input type="password" placeholder="Password" required></input>
+        <span>Already have an account? <a href="/">Login here.</a></span>
+        <div class='display-in-line'>
+          <button class='register-submit'>Go</button>
+        </div>
+      </form>
+    </section>
+
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
       <hr />
