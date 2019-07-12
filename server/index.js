@@ -47,9 +47,10 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   });
     
   app.post("/register", (req, res) => {
-    if(db.collection('users').findOne({email:req.body.email})) {
-      res.status(403).redirect('/');
-    }
+    // if(db.collection('users').findOne({email:req.body.email})) {
+    //   res.status(403);
+    //   //implement what to do when someone is trying to use the same e-mail
+    // } 
     let user = {
       username: req.body.username,
       fullName: req.body.fullName,
@@ -57,8 +58,11 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
       password: bcrypt.hashSync(req.body.password, 10)
     };
     db.collection('users').insertOne(user);
-    req.session.user = db.collections('users').findOne({email: req.body.email})._id;
-    // res.json(user);
+    user = db.collection('users').findOne({email: req.body.email}, (err, result) => {
+      if (err) throw err;
+      req.session.user = result._id;
+      res.json({username: result.username, id: result._id});
+    });
   });
 
   app.post("/logout", (req, res) => {

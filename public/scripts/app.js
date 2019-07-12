@@ -1,8 +1,21 @@
 $(document).ready(function() {
 
+  const addHover = () => {
+    $("#tweet-container .tweet, #nav-bar button.logout").hover(
+      function() {
+        $(this).css({ opacity: "1" });
+      },
+      function() {
+        $(this).css({ opacity: "0.8" });
+      }
+    );
+  ;}
+  
   const isLoggedIn = (username) => {
     $('#nav-bar .header').after(`<span>@${username}</span>`);
     $('#nav-bar .compose').css({visibility: "visible"});
+    $('#nav-bar button.login-register-toggle').replaceWith('<button class="logout"><div>Logout</div></button>');
+    addHover();
   };
   
   const createHeader = tweetData => {
@@ -52,17 +65,6 @@ $(document).ready(function() {
     });
   }
 
-  const addHover = () => {
-    $("#tweet-container .tweet").hover(
-      function() {
-        $(this).css({ opacity: "1" });
-      },
-      function() {
-        $(this).css({ opacity: "0.8" });
-      }
-    );
-  }
-
   $('.new-tweet form').submit(function(event) {
     event.preventDefault();
     const tweetBody = $('.new-tweet form textarea[name="text"]').val();
@@ -102,7 +104,7 @@ $(document).ready(function() {
     const password = $('.register-form form input[type="password"').val();
     $.post('/register', {fullName, username, email, password}, function(data) {
       $(".register-form").toggle("slow");
-      //replace the login with the person's full name instead and add the compose button
+      isLoggedIn(data.username);
     });
   });
 

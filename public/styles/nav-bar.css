@@ -23,19 +23,18 @@
 .compose {
   visibility: hidden;
   margin-right: 5px;
+  display: flex;
 }
 
-.login-register-toggle, .compose {
-  opacity: 0.9;
+.login-register-toggle, .compose, .logout {
+  opacity: 0.8;
   float: right;
   height: 50px;
-  display: flex;
-  flex-direction: row;
   color: grey;
   border-radius: 5px;
   background: white;
 }
 
-.login-register-toggle {
+.login-register-toggle, .logout {
   width: 125px;
 }
