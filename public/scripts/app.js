@@ -67,8 +67,9 @@ $(document).ready(function() {
 
   $('.new-tweet form').submit(function(event) {
     event.preventDefault();
-    const tweetBody = $('.new-tweet form textarea[name="text"]').val();
-    $.post('/tweets', {text: tweetBody}, function(data) {
+    const text= $('.new-tweet form textarea[name="text"]').val();
+    //i need to send the handler and the full name as well 
+    $.post('/tweets', {text}, function(data) {
       appendTweet();
       let counter = $(".new-tweet form .display-in-line .counter");
       counter.text(140);

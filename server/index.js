@@ -37,7 +37,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     db.collection('users').findOne({email: req.body.email}, (err, result) => {
       if (err) throw err;
       if (bcrypt.compareSync (req.body.password, result.password)) {
-        req.session.user = {username: result.username, id: result._id};
+        req.session.user = {username: result.username, fullName: result.fullName, id: result._id};
         res.json({username: result.username, id: result._id});
       } else {
         res.status(401);
@@ -63,7 +63,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
         db.collection('users').insertOne(user);
         user = db.collection('users').findOne({email: req.body.email}, (err, result) => {
           if (err) throw err;
-          req.session.user = result._id;
+          req.session.user = {username: result.username, fullName: result.fullName, id: result._id};
           res.json({username: result.username, id: result._id});
         });
       };
