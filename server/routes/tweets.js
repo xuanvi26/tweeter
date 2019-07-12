@@ -1,11 +1,7 @@
 "use strict";
 
-const userHelper    = require("../lib/util/user-helper")
-
 const express       = require('express');
 const tweetsRoutes  = express.Router();
-const { MongoClient } = require("mongodb");
-const MONGODB_URI = "mongodb://localhost:27017/tweeter";
 
 module.exports = function(DataHelpers) {
 
@@ -32,7 +28,7 @@ module.exports = function(DataHelpers) {
       const user = {
           name: req.session.user.fullName,
           handle: '@' + req.session.user.username,
-          avatars: userHelper.generateRandomUser().avatars
+          avatars: req.session.user.avatars
       };
       const tweet = {
           user: user,

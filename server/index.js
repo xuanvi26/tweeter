@@ -2,6 +2,8 @@
 
 // Basic express setup:
 
+const userHelper    = require("./lib/util/user-helper")
+
 const PORT          = 8080;
 const express       = require("express");
 const bodyParser    = require("body-parser");
@@ -37,7 +39,12 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     db.collection('users').findOne({email: req.body.email}, (err, result) => {
       if (err) throw err;
       if (bcrypt.compareSync (req.body.password, result.password)) {
-        req.session.user = {username: result.username, fullName: result.fullName, id: result._id};
+        req.session.user = {
+          username: result.username, 
+          fullName: result.fullName, 
+          id: result._id,
+          avatars: result.avatars
+        };
         res.json({username: result.username, id: result._id});
       } else {
         res.status(401);
@@ -58,12 +65,18 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
           username: req.body.username,
           fullName: req.body.fullName,
           email: req.body.email,
-          password: bcrypt.hashSync(req.body.password, 10)
+          password: bcrypt.hashSync(req.body.password, 10),
+          avatars: userHelper.generateRandomUser().avatars
         };
         db.collection('users').insertOne(user);
         user = db.collection('users').findOne({email: req.body.email}, (err, result) => {
           if (err) throw err;
-          req.session.user = {username: result.username, fullName: result.fullName, id: result._id};
+              req.session.user = {
+              username: result.username, 
+              fullName: result.fullName, 
+              id: result._id,
+              avatars: result.avatars,
+          };
           res.json({username: result.username, id: result._id});
         });
       };
