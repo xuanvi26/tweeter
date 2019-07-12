@@ -9,21 +9,25 @@
   z-index: 1000;
 }
 
-.logo {
+#nav-bar .logo {
   width: 60px;
   height: 50px;
   float: left;
 }
 
-.header {
+#nav-bar .header {
   font-size: 2em;
   float: left;
 }
 
-.compose {
+#nav-bar .compose {
   visibility: hidden;
   margin-right: 5px;
   display: flex;
+}
+
+#nav-bar .handler {
+  position: absolute;
 }
 
 .login-register-toggle, .compose, .logout {

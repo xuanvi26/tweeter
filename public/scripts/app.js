@@ -12,9 +12,9 @@ $(document).ready(function() {
   ;}
   
   const isLoggedIn = (username) => {
-    $('#nav-bar .header').after(`<span>@${username}</span>`);
+    $('#nav-bar .header').after(`<span class="handler">@${username}</span>`);
     $('#nav-bar .compose').css({visibility: "visible"});
-    $('#nav-bar button.login-register-toggle').replaceWith('<button class="logout"><div>Logout</div></button>');
+    $('#nav-bar button.login-register-toggle').replaceWith('<form method="POST" action="/logout"><button class="logout"><div>Logout</div></button></form>');
     addHover();
   };
   

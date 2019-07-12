@@ -8,7 +8,7 @@
   margin-bottom: 30px;
 }
 
-input {
+.container input {
   border-width: 1px;
   height: 30px;
   margin-bottom: 10px;
@@ -17,20 +17,20 @@ input {
   padding: 5px;
 }
 
-.message {
+.container .message {
   font-size: 0.9em;
   margin-bottom: 5px;
   color:rgb(105, 105, 105)
 }
 
-button[type="button"] {
+.container button[type="button"] {
   background: none;
   border: none;
   text-decoration: underline;
   color: rgb(105,105,105);
 }
 
-.submit-button {
+.container .submit-button {
   color: grey;
   padding: 3px;
   font-size: 0.7em;
@@ -38,25 +38,25 @@ button[type="button"] {
   border-radius: 4px;
 }
 
-h2 {
+.container h2 {
   color: whitesmoke;
   margin-bottom: 0;
   text-align: center;
 }
 
-form {
+.container form {
   display: flex;
   flex-direction: column;
   padding: 13px;
 }
 
-.display-in-line {
+.container .display-in-line {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.new-tweet textarea {
+.container .new-tweet textarea {
   border-color: rgb(165, 165, 165);
   padding: 5px;
   margin-bottom: 10px;
@@ -65,6 +65,6 @@ form {
   color: grey;
 }
 
-.new-tweet .counter {
+.container .new-tweet .counter {
   color: rgb(165, 165, 165);
 }
