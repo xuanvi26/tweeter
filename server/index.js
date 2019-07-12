@@ -39,10 +39,10 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
       if (err) throw err;
       if (bcrypt.compareSync (req.body.password, result.password)) {
         resStatus = 200;
-        req.session.user = result._id;
+        req.session.user = {username: result.username, id: result._id};
       }
-      console.log('session id', req.session.user);
-      res.status(resStatus).redirect('/');
+      res.status(resStatus);
+      res.json({username: result.username, id: result._id});
     })
   });
     
@@ -58,9 +58,12 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     };
     db.collection('users').insertOne(user);
     req.session.user = db.collections('users').findOne({email: req.body.email})._id;
+    // res.json(user);
   });
 
-//hashedPassword: bcrypt.hashSync(req.body.password, 10)
+  app.post("/logout", (req, res) => {
+    req.session = null;
+  })
   
   app.listen(PORT, () => {
     console.log("Example app listening on port " + PORT);

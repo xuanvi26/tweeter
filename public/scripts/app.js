@@ -1,4 +1,9 @@
 $(document).ready(function() {
+
+  const isLoggedIn = (username) => {
+    $('#nav-bar .header').after(`<span>@${username}</span>`);
+    $('#nav-bar .compose').css({visibility: "visible"});
+  };
   
   const createHeader = tweetData => {
     let header = $("<header>");
@@ -41,8 +46,8 @@ $(document).ready(function() {
   };
 
   const appendTweet = () => {
-    $.get('/tweets', function(data) {
-      renderTweets([data[data.length - 1]]);
+    $.get('/tweets', function({tweets}) {
+      renderTweets([tweets[tweets.length - 1]]);
       addHover();
     });
   }
@@ -70,9 +75,10 @@ $(document).ready(function() {
   });
 
   const loadTweets = () => {
-    $.get('/tweets', function(data) {
-      renderTweets(data);
+    $.get('/tweets', function({tweets, username}) {
+      renderTweets(tweets);
       addHover();
+      if(username) isLoggedIn(username);
     });
   };
 
@@ -84,8 +90,7 @@ $(document).ready(function() {
     const password = $('.login-form form input[type="password"').val();
     $.post('/login', {email, password}, function(data) {
       $(".login-form").toggle("slow");
-      $("#nav-bar login-toggle").replacewith('<span>HELLO</span>');
-      //replace the login with the person's full name instead and add the compose button
+      isLoggedIn(data.username);
     });
   });
 

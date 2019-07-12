@@ -7,7 +7,7 @@
 }
 
 #tweet-container .tweet header {
-  background-color: rgba(36, 233, 160, 0.50);
+  background-color:whitesmoke;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
