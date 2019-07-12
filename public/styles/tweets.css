@@ -58,6 +58,11 @@
   justify-content: space-between;
 }
 
+#tweet-container .display-in-line {
+  display: flex;
+  flex-direction: row;
+}
+
 #tweet-container .tweet footer button {
   border: none;
   background: none;

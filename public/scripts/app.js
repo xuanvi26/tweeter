@@ -38,7 +38,11 @@ $(document).ready(function() {
     let footer = $("<footer>");
     let date = `<div>${new Date(tweetData.created_at).toLocaleDateString("en-US", { hour: 'numeric', minute: 'numeric' })}</div>`
     let heartIcon = '<button><i class="material-icons" style="font-size:16px">favorite_border</i></button>';
-    footer.append(date, heartIcon);
+    let counter = 0;
+    let counterDisp = `<span>${counter}</span>`
+    let likes = $('<div>').addClass('display-in-line');
+    likes.append(counterDisp, heartIcon);
+    footer.append(date, likes);
     return footer;
   };
 
