@@ -36,7 +36,9 @@ $(document).ready(function() {
 
   const createFooter = tweetData => {
     let footer = $("<footer>");
-    footer.append(`<div>${new Date(tweetData.created_at).toLocaleDateString("en-US", { hour: 'numeric', minute: 'numeric' })}`);
+    let date = `<div>${new Date(tweetData.created_at).toLocaleDateString("en-US", { hour: 'numeric', minute: 'numeric' })}</div>`
+    let heartIcon = '<button><i class="material-icons" style="font-size:16px">favorite_border</i></button>';
+    footer.append(date, heartIcon);
     return footer;
   };
 

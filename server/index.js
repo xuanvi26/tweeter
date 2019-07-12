@@ -1,7 +1,5 @@
 "use strict";
 
-// Basic express setup:
-
 const userHelper    = require("./lib/util/user-helper")
 
 const PORT          = 8080;
