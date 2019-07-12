@@ -37,10 +37,10 @@ $(document).ready(function() {
   const createFooter = tweetData => {
     let footer = $("<footer>");
     let date = `<div>${new Date(tweetData.created_at).toLocaleDateString("en-US", { hour: 'numeric', minute: 'numeric' })}</div>`
-    let heartIcon = '<button><i class="material-icons" style="font-size:16px">favorite_border</i></button>';
+    let heartIcon = '<button type="submit"><i class="material-icons" style="font-size:16px">favorite_border</i></button>';
     let counter = 0;
     let counterDisp = `<span>${counter}</span>`
-    let likes = $('<div>').addClass('display-in-line');
+    let likes = $(`<form method="POST" action="/like/${tweetData._id}">`).addClass('display-in-line');
     likes.append(counterDisp, heartIcon);
     footer.append(date, likes);
     return footer;
@@ -48,6 +48,7 @@ $(document).ready(function() {
 
   const createTweetElement = rawTweet => {
     let articleTweet = $("<article>").addClass("tweet");
+    articleTweet.data("id", rawTweet._id);
     let header = createHeader(rawTweet);
     let body = createBody(rawTweet);
     let footer = createFooter(rawTweet);
@@ -74,7 +75,6 @@ $(document).ready(function() {
   $('.new-tweet form').submit(function(event) {
     event.preventDefault();
     const text= $('.new-tweet form textarea[name="text"]').val();
-    //i need to send the handler and the full name as well 
     $.post('/tweets', {text}, function(data) {
       appendTweet();
       let counter = $(".new-tweet form .display-in-line .counter");

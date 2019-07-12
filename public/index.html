@@ -45,7 +45,7 @@
     <section class="login-form">
       <h2>Login</h2>
       <hr />
-      <form method="POST" action="/login">
+      <form class="form" method="POST" action="/login">
         <input type="email" placeholder="Email" required ></input>
         <input type="password" placeholder="Password" required></input>
         <span class="message">Don't have an account? <button type="button">Register here.</button></span>
@@ -58,7 +58,7 @@
     <section class="register-form">
       <h2>Register</h2>
       <hr />
-      <form method="POST" action="/register">
+      <form class="form" method="POST" action="/register">
         <input name="fullName" placeholder="Full Name" required ></input>
         <input name="username" placeholder="Username" required ></input>
         <input type="email" placeholder="Email" required ></input>
@@ -73,7 +73,7 @@
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
       <hr />
-      <form method="POST" action="/tweets">
+      <form class="form" method="POST" action="/tweets">
         <textarea name="text" placeholder="What are you humming about?" required oninvalid="this.setCustomValidity('Please enter a tweet.')" maxlength="140"></textarea>
         <div class='display-in-line'>
           <button class='submit-button'>Go</button>

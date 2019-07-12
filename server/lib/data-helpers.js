@@ -5,8 +5,8 @@ module.exports = function makeDataHelpers(db) {
   
     saveTweet: function(newTweet, callback) {
       db.collection('tweets').insertOne(newTweet)
-      .then(result => callback(null, true))
-      .catch(err => callback(true, null))
+      .then(result => callback(null, result))
+      .catch(err => callback(err, null))
     },
 
     getTweets: function(callback) {
@@ -18,6 +18,21 @@ module.exports = function makeDataHelpers(db) {
           }
           callback(null, tweets);
         });
+    },
+
+    getUser: function(email, callback) {
+      db.collection('users')
+        .findOne({email})
+        .then(result => callback(null, result))
+        .catch(err => callback(err, null));
+    },
+
+    insertUser: function(user, callback) {
+      db.collection('users')
+      .insertOne(user)
+      .then(result => callback(null, result))
+      .catch(err => callback(err, null));
     }
+
   };
 };

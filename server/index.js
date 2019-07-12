@@ -34,7 +34,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   app.use("/tweets", tweetsRoutes);
 
   app.post("/login", (req, res) => {
-    db.collection('users').findOne({email: req.body.email}, (err, result) => {
+    DataHelpers.getUser(req.body.email, (err, result) => {
       if (err) throw err;
       if (bcrypt.compareSync (req.body.password, result.password)) {
         req.session.user = {
@@ -48,11 +48,11 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
         res.status(401);
         res.json();
       }
-    });
+    })
   });
     
   app.post("/register", (req, res) => {
-    db.collection('users').findOne({email:req.body.email}, (err, result) => {
+    DataHelpers.getUser(req.body.emai, (err, result) => {
       if (err) throw err;
       if (result) {
         res.status(401);
@@ -66,16 +66,15 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
           password: bcrypt.hashSync(req.body.password, 10),
           avatars: userHelper.generateRandomUser().avatars
         };
-        db.collection('users').insertOne(user);
-        user = db.collection('users').findOne({email: req.body.email}, (err, result) => {
+        DataHelpers.insertUser(user, (err, result) => {
           if (err) throw err;
-              req.session.user = {
-              username: result.username, 
-              fullName: result.fullName, 
-              id: result._id,
-              avatars: result.avatars,
+            req.session.user = {
+              username: user.username, 
+              fullName: user.fullName, 
+              id: result.insertedId,
+              avatars: user.avatars,
           };
-          res.json({username: result.username, id: result._id});
+          res.json({username: user.username, id: result.insertedId});
         });
       };
     });
@@ -84,7 +83,11 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   app.post("/logout", (req, res) => {
     req.session = null;
     res.redirect('/');
-  })
+  });
+
+  app.post("/like/:id", (req, res) => {
+    
+  });
   
   app.listen(PORT, () => {
     console.log("Example app listening on port " + PORT);
