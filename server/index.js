@@ -35,33 +35,38 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
 
   app.post("/login", (req, res) => {
     db.collection('users').findOne({email: req.body.email}, (err, result) => {
-      let resStatus = 403;
       if (err) throw err;
       if (bcrypt.compareSync (req.body.password, result.password)) {
-        resStatus = 200;
         req.session.user = {username: result.username, id: result._id};
+        res.json({username: result.username, id: result._id});
+      } else {
+        res.status(401);
+        res.json();
       }
-      res.status(resStatus);
-      res.json({username: result.username, id: result._id});
-    })
+    });
   });
     
   app.post("/register", (req, res) => {
-    // if(db.collection('users').findOne({email:req.body.email})) {
-    //   res.status(403);
-    //   //implement what to do when someone is trying to use the same e-mail
-    // } 
-    let user = {
-      username: req.body.username,
-      fullName: req.body.fullName,
-      email: req.body.email,
-      password: bcrypt.hashSync(req.body.password, 10)
-    };
-    db.collection('users').insertOne(user);
-    user = db.collection('users').findOne({email: req.body.email}, (err, result) => {
+    db.collection('users').findOne({email:req.body.email}, (err, result) => {
       if (err) throw err;
-      req.session.user = result._id;
-      res.json({username: result.username, id: result._id});
+      if (result) {
+        res.status(401);
+        res.json();
+      }
+      else {
+        let user = {
+          username: req.body.username,
+          fullName: req.body.fullName,
+          email: req.body.email,
+          password: bcrypt.hashSync(req.body.password, 10)
+        };
+        db.collection('users').insertOne(user);
+        user = db.collection('users').findOne({email: req.body.email}, (err, result) => {
+          if (err) throw err;
+          req.session.user = result._id;
+          res.json({username: result.username, id: result._id});
+        });
+      };
     });
   });
 

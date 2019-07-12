@@ -93,6 +93,9 @@ $(document).ready(function() {
     $.post('/login', {email, password}, function(data) {
       $(".login-form").toggle("slow");
       isLoggedIn(data.username);
+    }).fail(function() {
+      alert('Your password and email combination does not match a Tweeter account. Please try again.');
+      $('.login-form form input[type="password"]').val('');
     });
   });
 
@@ -105,6 +108,9 @@ $(document).ready(function() {
     $.post('/register', {fullName, username, email, password}, function(data) {
       $(".register-form").toggle("slow");
       isLoggedIn(data.username);
+    }).fail(function() {
+      alert('The email you entered is already in use. Please enter a new email.');
+      $('.register-form form input[type="email"]').val('');
     });
   });
 
