@@ -34,40 +34,55 @@ $(document).ready(function() {
     return body;
   };
 
-  const createFooter = tweetData => {
+  const createFooter = (tweetData, id) => {
+    let isLiked = tweetData.likedBy ? !!tweetData.likedBy[id] : false;
     let footer = $("<footer>");
     let date = `<div>${new Date(tweetData.created_at).toLocaleDateString("en-US", { hour: 'numeric', minute: 'numeric' })}</div>`
-    let heartIcon = '<button type="submit"><i class="material-icons" style="font-size:16px">favorite_border</i></button>';
-    let counter = 0;
-    let counterDisp = `<span>${counter}</span>`
-    let likes = $(`<form method="POST" action="/like/${tweetData._id}">`).addClass('display-in-line');
+    let heartIcon = $(`<button type="submit"><i class="material-icons" style="font-size:16px">${isLiked ? 'favorite' : 'favorite_border'}</i></button>`);
+    $(heartIcon).data("is-liked", isLiked);
+    let counter = Object.values(tweetData.likedBy).filter(a => a).length;
+    let counterDisp = $(`<span>${counter}</span>`);
+    let likes = $(`<div>`).addClass('display-in-line');
     likes.append(counterDisp, heartIcon);
     footer.append(date, likes);
+    if (!id) return footer;
+    heartIcon.click((event) => {
+      event.preventDefault()
+      isLiked = !isLiked;
+      if (isLiked) {
+        heartIcon.find('.material-icons').text('favorite');
+        counterDisp.text(++counter);
+      } else {
+        heartIcon.find('.material-icons').text('favorite_border');
+        counterDisp.text(--counter);
+      }
+      $.post(`/like/${tweetData._id}?isLiked=${isLiked}`);
+    });
     return footer;
   };
 
-  const createTweetElement = rawTweet => {
+  const createTweetElement = (rawTweet, id) => {
     let articleTweet = $("<article>").addClass("tweet");
     articleTweet.data("id", rawTweet._id);
     let header = createHeader(rawTweet);
     let body = createBody(rawTweet);
-    let footer = createFooter(rawTweet);
+    let footer = createFooter(rawTweet, id);
     articleTweet.append(header);
     articleTweet.append(body);
     articleTweet.append(footer);
     return articleTweet;
   };
 
-  const renderTweets = (tweets) => {
+  const renderTweets = (tweets, id) => {
     tweets.map(tweet => {
-      let articleTweet = createTweetElement(tweet);
+      let articleTweet = createTweetElement(tweet, id);
       $("#tweet-container").prepend(articleTweet);
     });
   };
 
   const appendTweet = () => {
-    $.get('/tweets', function({tweets}) {
-      renderTweets([tweets[tweets.length - 1]]);
+    $.get('/tweets', function({tweets, id}) {
+      renderTweets([tweets[tweets.length - 1]], id);
       addHover();
     });
   }
@@ -84,8 +99,8 @@ $(document).ready(function() {
   });
 
   const loadTweets = () => {
-    $.get('/tweets', function({tweets, username}) {
-      renderTweets(tweets);
+    $.get('/tweets', function({tweets, username, id}) {
+      renderTweets(tweets, id);
       addHover();
       if(username) isLoggedIn(username);
     });

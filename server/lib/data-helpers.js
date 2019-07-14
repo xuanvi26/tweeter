@@ -1,5 +1,7 @@
 "use strict";
 
+const { ObjectID } = require("mongodb");
+
 module.exports = function makeDataHelpers(db) {
   return {
   
@@ -32,7 +34,15 @@ module.exports = function makeDataHelpers(db) {
       .insertOne(user)
       .then(result => callback(null, result))
       .catch(err => callback(err, null));
-    }
+    },
+
+    updateLikes: function(tweetId, userId, isLiked, callback) {
+      const key = `likedBy.${userId}`;
+      db.collection('tweets')
+      .updateOne({_id: new ObjectID(tweetId)}, {$set: {[key]: isLiked}}, {upsert: true})
+      .then(result => callback(null, result))
+      .catch(err => callback(err, null));
+    },
 
   };
 };

@@ -13,6 +13,7 @@ module.exports = function(DataHelpers) {
           let data = {};
           if (req.session.user) {
             data.username = req.session.user.username;
+            data.id = req.session.user.id;
           }
           data.tweets = tweets;
           res.json(data);

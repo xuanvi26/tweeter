@@ -52,7 +52,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   });
     
   app.post("/register", (req, res) => {
-    DataHelpers.getUser(req.body.emai, (err, result) => {
+    DataHelpers.getUser(req.body.email, (err, result) => {
       if (err) throw err;
       if (result) {
         res.status(401);
@@ -71,8 +71,8 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
             req.session.user = {
               username: user.username, 
               fullName: user.fullName, 
-              id: result.insertedId,
               avatars: user.avatars,
+              id: result.insertedId
           };
           res.json({username: user.username, id: result.insertedId});
         });
@@ -86,7 +86,10 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
   });
 
   app.post("/like/:id", (req, res) => {
-    
+    DataHelpers.updateLikes(req.params.id, req.session.user.id, req.query.isLiked === "true", (err, result) => {
+      if (err) throw err;
+      res.redirect('/');
+    });
   });
   
   app.listen(PORT, () => {
